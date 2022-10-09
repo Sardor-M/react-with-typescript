@@ -1,6 +1,7 @@
+import { List } from '@material-ui/core';
 import React, {useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Lists from './components/Lists';
 
 function App() {
   // const [number, setNumber] = useState<number | string | boolean>(2);
@@ -34,12 +35,13 @@ function App() {
   const [people, setPeople] = useState<ofState['people']>([])
 
   people.map(person => {
-    person.age
+    person.name
   })
 
   return (
     <div className="App">
       <h1> People which are invited to school event.</h1>
+      <Lists people={people}/>
     </div>
   );
 }
