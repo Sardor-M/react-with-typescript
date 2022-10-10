@@ -1,25 +1,19 @@
 
 import React from 'react';
+import {ofState as Props} from '../App';
 
-interface listProps {
-    people: {
-      name: string,
-      age: number,
-      id?: number
-      url: string
-      note?: string
-    }[]
-  }
+interface IProps {
+  people: Props['people']
+}
 
-
-const  List: React.FC<listProps> =({people})=> {
+const  List: React.FC<IProps> =({people})=> {
   
-  const renderList = () => {
-    return people.map((person)=> {
+  const renderList = (): JSX.Element[] => {
+    return people.map(person => {
       return (
         <i className='List'>
             <div className='List-header'>
-                <img className='List-img' src={person.url}/>
+                <img className='List-img' src={person.img}/>
                 <h2>{person.name}</h2>
             </div>
             <p>{person.age} years old</p>

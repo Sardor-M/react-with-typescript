@@ -1,6 +1,13 @@
 import React, { useState } from 'react'
+import {ofState as Props } from '../App';
 
-const AddList = () => {
+interface IProps {
+    people: Props['people']
+    setPeople: React.Dispatch<React.SetStateAction<Props['people']
+    >>
+}
+
+const AddList: React.FC<IProps> = ({people, setPeople}) => {
     // two-way binding 
     const [input, setInput] =useState({ 
         name:'',
@@ -13,6 +20,31 @@ const AddList = () => {
         setInput({
             ...input,
             [e.target.name]: e.target.value
+        })
+    }
+
+    const handleClick = (): void => {
+        if (
+            !input.name ||
+            !input.age ||
+            !input.img 
+        ) 
+            return 
+        
+        setPeople([
+            ...people,
+            {
+                name: input.name,
+                age: parseInt( input.age),
+                img: input.img,
+                note: input.note
+            } 
+        ]);
+        setInput ({
+            name:'',
+            age:'',
+            note:'',
+            img:''
         })
     }
 
@@ -35,7 +67,7 @@ const AddList = () => {
             onChange={handleChange}
         />
         <input 
-            name='url'
+            name='img'
             type='text'
             placeholder='Url'
             className='AddList-input'
@@ -49,6 +81,12 @@ const AddList = () => {
             value={input.note}
             onChange={handleChange}
         />
+        <button 
+            className='AddList-btn'
+            onClick={handleClick}
+        >
+            Add to  the list 
+        </button>    
     </div>
   )
 }

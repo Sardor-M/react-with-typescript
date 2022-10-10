@@ -83,10 +83,10 @@
 }
 
 .AddList-btn {
-  padding: 0.5rem;
+  padding: 0.7rem;
   cursor: pointer;
-  background-color: #0b5468;
-  font-weight: 700;
+  background-color: #03a2ce;
+  font-weight: 800;
   color: white;
   border: none
 }
