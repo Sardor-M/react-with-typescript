@@ -14,7 +14,7 @@ interface listProps {
 
 const  List: React.FC<listProps> =({people})=> {
   
-  const renderList = (): JSX.Element[] => {
+  const renderList = () => {
     return people.map((person)=> {
       return (
         <i className='List'>
